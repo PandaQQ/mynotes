@@ -1,3 +1,3 @@
-# Headline
+# 首頁
 
-> An awesome project.
+> 介紹頁
