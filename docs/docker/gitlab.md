@@ -139,7 +139,7 @@ networks:
 
 ```
 # 修改 /data/gitlab/config/gitlab.rb
-```
+
 ##! **recommend value is 1/4 of total RAM, up to 14GB.**
 postgresql['shared_buffers'] = "12256MB"
 
