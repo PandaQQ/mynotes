@@ -3,6 +3,7 @@
     * [Docker 实用技巧](docker/docker-skills.md)
     * [使用 nginx + docker搭建静态资源服务器](docker/nigix+docker.md)
     * [使用 GitLab 来对项目进行 CI/CD](docker/gitlab.md)
+    * [使用 Docker 安装Jenkins进行 CI/CD](docker/jenkins.md)
 
 - IBM Blockchain Platform 笔记
     * [Blockchain Platform 运维](IBM/managing-deployed-components.md)
