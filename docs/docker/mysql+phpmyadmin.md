@@ -1,5 +1,5 @@
 # 使用 Docker 安装 mysql5.6 + phpmyadmin
-
+> 本文主要介绍如何使用docker 安装mysql和phpmyadmin
 
 ### 1.创建网络 net-mysql
 ```
