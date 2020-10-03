@@ -17,11 +17,11 @@
 > This layer provides data coding for integers, floats, etc, data compression and secure transmission using cryptography.
 - Session: Operation System / Application Access Scheduling
 > This layer allows sessions to be established between different machines. Transferring a file from one machine to another
- - Transport: TCP / UDP
- > End to end connections: handles transportation issues between hosts, ensures data transport reliability and flow control
- - Network: IP / IPX
- > This layer adds header information to each package to uniquely address hosts in the network. Routing information is kept in tables or built dynamically.
- - Data link:
+- Transport: TCP / UDP
+> End to end connections: handles transportation issues between hosts, ensures data transport reliability and flow control
+- Network: IP / IPX
+> This layer adds header information to each package to uniquely address hosts in the network. Routing information is kept in tables or built dynamically.
+- Data link:
 > Data to be sent is broken into frames and transmitted. This layer needs to be able to recognize a frame in a raw bit stream.
 - Physical:
 > The lowest layer and is concerned with wiring and electrical standards.

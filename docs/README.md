@@ -7,3 +7,7 @@
 - [ ] IBM Blockchain Platform 搭建和运维教程。
 - [ ] 构建一个类似IBP区块链DevOps平台，完全开源。
 - [ ] CI/CD 教程。
+- [ ] AliCloud 之 Network Sepcialty
+- [ ] AliCloud 之 DevOps Sepcialty
+- [ ] AliCloud 之 Big Data Analysis Sepcialty
+- [ ] AliCloud 之 Machine Learning Sepcialty
