@@ -16,4 +16,5 @@
 - AliCloud Network-Sepcialty Notes
     * [Network Fundamentals](AliCloud-Exam-Notes/Network-Sepcialty/Network_Fundamentals.md)
     * [Switch and Routing](AliCloud-Exam-Notes/Network-Sepcialty/SwitchAndRouting.md)
+    * [Load Balancing](AliCloud-Exam-Notes/Network-Sepcialty/LoadBalancing.md)
     
