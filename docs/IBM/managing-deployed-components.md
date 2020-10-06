@@ -8,14 +8,15 @@
 - 直接对不同节点的File Storage做扩容，具体可参考：https://cloud.ibm.com/docs/FileStorage?topic=FileStorage-expandCapacity&locale=en
 - 没错就是这么直接和暴力，然后更新之后在IBM Blockchain Platform里面发现Peers的Storage没变化。
 - 没错就是bug，直接找IBM support team 问原因。他们直接让我去 k8s里面查该peer的storage size, 是正常的。
+
 ```
-Can you please inspect a peer pod container and perform this command?
+    Can you please inspect a peer pod container and perform this command?
 
-$ kubectl exec -c peer -n n4269ca -- df -h
+    $ kubectl exec -c peer -n n4269ca -- df -h
 
-It should list an entry like this...
+    It should list an entry like this...
 
-XXXXXXXXXXXXXX:/DSW02SEV2117092_7/data01/data 101G 0 101G 0% /data
+    XXXXXXXXXXXXXX:/DSW02SEV2117092_7/data01/data 101G 0 101G 0% /data
 ```
 - 总结下：要对节点扩容，直接Expand File Share Capacity 即可。然后不放心的话就去k8s里面通过kubectl查看先即可。
 
