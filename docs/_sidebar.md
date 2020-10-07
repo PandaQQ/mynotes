@@ -7,6 +7,7 @@
     * [使用 Docker 安装mysql5.6+phpmyadmin](docker/mysql+phpmyadmin.md)
 
 - IBM Blockchain Platform 笔记
+    * [Blockchain Basic: Hyperledger Fabric](IBM/blockchain-basic-hyperledger-fabric.md)
     * [IBM Blockchain Platform on Cloud](IBM/IBM-Blockchain-Platform-on-Cloud.md)
     * [Blockchain Platform 运维](IBM/managing-deployed-components.md)
 
