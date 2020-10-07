@@ -17,7 +17,6 @@ Plan                - Standard
 Quantity            - 1
 Credit per Month    - 391.84 USD
 Unit                - Worker node-hour
-
 Remark: 
 Worker node
 $0.52 / hr
@@ -49,17 +48,14 @@ Unit                - vCPU/hour
 ```
 Cloud Monitoring with Sysdig - Graduated Tier 
 Remark: 105.00 USD 
-
 Log Analytic with LogDNA - 7 day Log Search
 Remark: 
 5GB log per month
 7.50 USD per month
-
 Cloud Activity Tracker with LogDNA - 7 day Log Search
 Remark: 
 5GB log per month
 7.50 USD per month
-
 Cloud HSM - Cloud HSM 7.0
 ```
 
