@@ -1,6 +1,6 @@
 # PandaQQ‘s Develop Note
 
-> 我要開始裝逼了
+> PandaQQ 的开发笔记～
 
 [GitHub](<https://github.com/PandaQQ>)
-[开始閱讀](README.md)
+[开始阅读](README.md)

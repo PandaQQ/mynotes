@@ -9,6 +9,7 @@
 - IBM Blockchain Platform 笔记
     * [Blockchain Basic: Hyperledger Fabric](IBM/blockchain-basic-hyperledger-fabric.md)
     * [IBM Blockchain Platform on Cloud](IBM/IBM-Blockchain-Platform-on-Cloud.md)
+    * [用 Visual Studio Code 开发 Smart Contract](IBM/smart-contract.md)
     * [Blockchain Platform 运维](IBM/managing-deployed-components.md)
 
 - React Native 开发笔记
