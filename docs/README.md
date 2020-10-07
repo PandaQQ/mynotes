@@ -4,7 +4,7 @@
 
 
 ## 2020 - 2021 目标：
-- [ ] IBM Blockchain Platform 搭建和运维教程。
+- [X] IBM Blockchain Platform 搭建和运维教程。
 - [ ] 构建一个类似IBP区块链DevOps平台，完全开源。
 - [ ] CI/CD 教程。
 - [ ] AliCloud 之 Network Sepcialty
