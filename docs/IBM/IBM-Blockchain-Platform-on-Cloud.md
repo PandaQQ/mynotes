@@ -45,6 +45,7 @@ Unit                - vCPU/hour
 ```
 
 - DevOps
+
 ```
 Cloud Monitoring with Sysdig - Graduated Tier 
 Remark: 105.00 USD 
@@ -58,6 +59,7 @@ Remark:
 7.50 USD per month
 Cloud HSM - Cloud HSM 7.0
 ```
+
 
 -  Total: **1,249.35** USD per month
 
