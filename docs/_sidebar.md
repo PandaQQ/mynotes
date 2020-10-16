@@ -21,3 +21,6 @@
     * [Switch and Routing](AliCloud-Exam-Notes/Network-Sepcialty/SwitchAndRouting.md)
     * [Load Balancing](AliCloud-Exam-Notes/Network-Sepcialty/LoadBalancing.md)
     * [Network Security](AliCloud-Exam-Notes/Network-Sepcialty/NetworkSecurity.md)
+
+- Hyperledger Fabric 教程
+    * [Huawei Cloud 純純的手工部署 Hyperledfer Fabric](Hyperledger-Fabric/multi-org-deployment-on-huaweicloud.md)
