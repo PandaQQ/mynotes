@@ -11,9 +11,9 @@ Ubuntu 18.04 server 64bit
 ## 主机列表
 | Nodes  |  Internal IP |  Public IP |
 | :----  |  :---------  |  :------   |
-|order.example.com | 192.168.0.181 | 119.8.237.150|
-|peer0.org1.example.com | 192.168.0.129 | 119.8.56.178|
-|peer0.org2.example.com | 192.168.0.70 | 119.8.123.249|
+|order.example.com | 192.168.0.181 | *** |
+|peer0.org1.example.com | 192.168.0.129 | ***|
+|peer0.org2.example.com | 192.168.0.70 | ***|
 
 ### 华为云 ECS内网域名解析:
 1. [内网域名解析](https://support.huaweicloud.com/productdesc-dns/dns_pd_0005.html)
