@@ -54,6 +54,7 @@ curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 apt install nodejs
 ```
 ### 5. 安装示例、二进制文件和 Docker 镜像
+
 ```
 mkdir fabric && cd fabric && curl -sSL https://bit.ly/2ysbOFE | bash -s
 

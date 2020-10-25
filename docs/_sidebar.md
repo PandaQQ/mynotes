@@ -23,4 +23,4 @@
     * [Network Security](AliCloud-Exam-Notes/Network-Sepcialty/NetworkSecurity.md)
 
 - Hyperledger Fabric 教程
-    * [Huawei Cloud 純純的手工部署 Hyperledfer Fabric](Hyperledger-Fabric/multi-org-deployment-on-huaweicloud.md)
+    * [Hyperledger Fabric 2.2.1 生产多机环境部署 - 1.开启CA服务并注册](Hyperledger-Fabric/hyperledger-fabric-deployment-1.md)
