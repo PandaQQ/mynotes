@@ -24,3 +24,4 @@
 
 - Hyperledger Fabric 教程
     * [Hyperledger Fabric 2.2.1 生产多机环境部署 - 1.开启CA服务并注册](Hyperledger-Fabric/hyperledger-fabric-deployment-1.md)
+    * [Hyperledger Fabric 2.2.1 生产多机环境部署 - 2.开启Orderer和Peer服务](Hyperledger-Fabric/hyperledger-fabric-deployment-2.md)
