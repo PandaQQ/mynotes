@@ -7,3 +7,8 @@
 docker stop $(docker ps -a -q)
 docker rm $(docker ps -a -q)
 ```
+
+### 2 - Monitor Docker logs with real-time
+```
+docker logs --follow {container_id}
+```
