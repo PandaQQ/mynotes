@@ -1,6 +1,7 @@
 # 基于 Hyperledger Fabric v2.2.1 的多机部署 (三)
 >A. 部署 Orderer 在 orderer.example.com
 >B. 部署 Org1 Peer0 CA 和 Org2 Peer0 CA
+>C. 创建 Org1 和 Org2 的CCP json 和 yaml 文件
 
 ## A. 使用 fabric-ca 构建 Orderer CA Server
 ### 1. 使用Docker构建 CA Order Server 并注册用户
@@ -646,4 +647,148 @@ fabric-ca-client enroll -u https://org2admin:org2adminpw@localhost:7054 --caname
 35 directories, 36 files
 ```
 
-## C. 至此，已经完成在3台VM上互相部署各自的CA服务器以及CA证书
+## C. 创建 Org1 和 Org2 的CCP json 和 yaml 文件
+> 这一步比较简单，使用 fabric-sample 中的脚步可以直接创建。
+> 脚本如下:
+
+```
+#!/bin/bash
+function one_line_pem {
+    echo "`awk 'NF {sub(/\\n/, ""); printf "%s\\\\\\\n",$0;}' $1`"
+}
+
+function json_ccp {
+    local PP=$(one_line_pem $4)
+    local CP=$(one_line_pem $5)
+    sed -e "s/\${ORG}/$1/" \
+        -e "s/\${P0PORT}/$2/" \
+        -e "s/\${CAPORT}/$3/" \
+        -e "s#\${PEERPEM}#$PP#" \
+        -e "s#\${CAPEM}#$CP#" \
+        organizations/ccp-template.json
+}
+
+function yaml_ccp {
+    local PP=$(one_line_pem $4)
+    local CP=$(one_line_pem $5)
+    sed -e "s/\${ORG}/$1/" \
+        -e "s/\${P0PORT}/$2/" \
+        -e "s/\${CAPORT}/$3/" \
+        -e "s#\${PEERPEM}#$PP#" \
+        -e "s#\${CAPEM}#$CP#" \
+        organizations/ccp-template.yaml | sed -e $'s/\\\\n/\\\n          /g'
+}
+
+ORG=1
+P0PORT=7051
+CAPORT=7054
+PEERPEM=organizations/peerOrganizations/org1.example.com/tlsca/tlsca.org1.example.com-cert.pem
+CAPEM=organizations/peerOrganizations/org1.example.com/ca/ca.org1.example.com-cert.pem
+
+echo "$(json_ccp $ORG $P0PORT $CAPORT $PEERPEM $CAPEM)" > organizations/peerOrganizations/org1.example.com/connection-org1.json
+echo "$(yaml_ccp $ORG $P0PORT $CAPORT $PEERPEM $CAPEM)" > organizations/peerOrganizations/org1.example.com/connection-org1.yaml
+
+ORG=2
+P0PORT=9051
+CAPORT=8054
+PEERPEM=organizations/peerOrganizations/org2.example.com/tlsca/tlsca.org2.example.com-cert.pem
+CAPEM=organizations/peerOrganizations/org2.example.com/ca/ca.org2.example.com-cert.pem
+
+echo "$(json_ccp $ORG $P0PORT $CAPORT $PEERPEM $CAPEM)" > organizations/peerOrganizations/org2.example.com/connection-org2.json
+echo "$(yaml_ccp $ORG $P0PORT $CAPORT $PEERPEM $CAPEM)" > organizations/peerOrganizations/org2.example.com/connection-org2.yaml
+
+```
+
+> connection的json样本文件:
+```
+{
+    "name": "test-network-org${ORG}",
+    "version": "1.0.0",
+    "client": {
+        "organization": "Org${ORG}",
+        "connection": {
+            "timeout": {
+                "peer": {
+                    "endorser": "300"
+                }
+            }
+        }
+    },
+    "organizations": {
+        "Org${ORG}": {
+            "mspid": "Org${ORG}MSP",
+            "peers": [
+                "peer0.org${ORG}.example.com"
+            ],
+            "certificateAuthorities": [
+                "ca.org${ORG}.example.com"
+            ]
+        }
+    },
+    "peers": {
+        "peer0.org${ORG}.example.com": {
+            "url": "grpcs://localhost:${P0PORT}",
+            "tlsCACerts": {
+                "pem": "${PEERPEM}"
+            },
+            "grpcOptions": {
+                "ssl-target-name-override": "peer0.org${ORG}.example.com",
+                "hostnameOverride": "peer0.org${ORG}.example.com"
+            }
+        }
+    },
+    "certificateAuthorities": {
+        "ca.org${ORG}.example.com": {
+            "url": "https://localhost:${CAPORT}",
+            "caName": "ca-org${ORG}",
+            "tlsCACerts": {
+                "pem": ["${CAPEM}"]
+            },
+            "httpOptions": {
+                "verify": false
+            }
+        }
+    }
+}
+
+```
+
+> connection的yaml样本文件:
+```
+---
+name: test-network-org${ORG}
+version: 1.0.0
+client:
+  organization: Org${ORG}
+  connection:
+    timeout:
+      peer:
+        endorser: '300'
+organizations:
+  Org${ORG}:
+    mspid: Org${ORG}MSP
+    peers:
+    - peer0.org${ORG}.example.com
+    certificateAuthorities:
+    - ca.org${ORG}.example.com
+peers:
+  peer0.org${ORG}.example.com:
+    url: grpcs://localhost:${P0PORT}
+    tlsCACerts:
+      pem: |
+          ${PEERPEM}
+    grpcOptions:
+      ssl-target-name-override: peer0.org${ORG}.example.com
+      hostnameOverride: peer0.org${ORG}.example.com
+certificateAuthorities:
+  ca.org${ORG}.example.com:
+    url: https://localhost:${CAPORT}
+    caName: ca-org${ORG}
+    tlsCACerts:
+      pem: 
+        - |
+          ${CAPEM}
+    httpOptions:
+      verify: false
+
+```

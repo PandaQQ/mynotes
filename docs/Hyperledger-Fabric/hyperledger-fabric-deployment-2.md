@@ -1,137 +1,69 @@
 # 基于 Hyperledger Fabric v2.2.1 的多机部署 (二)
-> 部署 Orderer 和 Peer 服务
+> 多机部署环境搭建
 
-
-## 使用Docker 创建 Orderer 服务
-
+## 主机配置
 ```
-# Create Docker Orderer Volume Dir 
-mkdir -p ./orderer.example.com
-
-docker run --rm -d \
---name orderer.example.com \
--e FABRIC_LOGGING_SPEC=INFO \
--e ORDERER_GENERAL_LISTENADDRESS=0.0.0.0 \
--e ORDERER_GENERAL_LISTENPORT=7050 \
--e ORDERER_GENERAL_GENESISMETHOD=file \
--e ORDERER_GENERAL_GENESISFILE=/var/hyperledger/orderer/orderer.genesis.block \
--e ORDERER_GENERAL_LOCALMSPID=OrdererMSP \
--e ORDERER_GENERAL_LOCALMSPDIR=/var/hyperledger/orderer/msp \
--e ORDERER_GENERAL_TLS_ENABLED=true \
--e ORDERER_GENERAL_TLS_PRIVATEKEY=/var/hyperledger/orderer/tls/server.key \
--e ORDERER_GENERAL_TLS_CERTIFICATE=/var/hyperledger/orderer/tls/server.crt \
--e ORDERER_GENERAL_TLS_ROOTCAS=[/var/hyperledger/orderer/tls/ca.crt] \
--e ORDERER_KAFKA_TOPIC_REPLICATIONFACTOR=1 \
--e ORDERER_KAFKA_VERBOSE=true \
--e ORDERER_GENERAL_CLUSTER_CLIENTCERTIFICATE=/var/hyperledger/orderer/tls/server.crt \
--e ORDERER_GENERAL_CLUSTER_CLIENTPRIVATEKEY=/var/hyperledger/orderer/tls/server.key \
--e ORDERER_GENERAL_CLUSTER_ROOTCAS=[/var/hyperledger/orderer/tls/ca.crt] \
--w /opt/gopath/src/github.com/hyperledger/fabric \
--p 7050:7050 \
--v ~/system-genesis-block/genesis.block:/var/hyperledger/orderer/orderer.genesis.block \
--v ~/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp:/var/hyperledger/orderer/msp \
--v ~/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/tls/:/var/hyperledger/orderer/tls \
--v ~/orderer.example.com:/var/hyperledger/production/orderer \
-hyperledger/fabric-orderer:2.2.1 orderer
+4vCPUs | 8GB | c3.xlarge.2
+Ubuntu 20.04 server 64bit
+100 GB Storage
 ```
 
+## 主机列表
+| Nodes  |  Internal IP |  Public IP |
+| :----  |  :---------  |  :------   |
+|order.example.com | 192.168.0.181 | * |
+|peer0.org1.example.com | 192.168.0.129 | * |
+|peer0.org2.example.com | 192.168.0.70 |  * |
 
-## 使用Docker 创建 Org1 服务
+### Hints: 华为云 ECS内网域名解析:
+- [内网域名解析](https://support.huaweicloud.com/productdesc-dns/dns_pd_0005.html)
+- [为云服务器配置内网域名](https://support.huaweicloud.com/bestpractice-dns/dns_bestprac_0002.html#dns_bestprac_0002__table11364645122020)
 
-### 1. Docker 安装 Org1 CouchDB
+
+## 基本环境配置
+> 以下依赖安装没有特别说明需要在各个主机中安装操作
+### 1. Docker 安装
+> 十分推荐，一键安装
 ```
-docker run --rm -d \
---name couchdb_peer0_org1 \
--e COUCHDB_USER=admin \
--e COUCHDB_PASSWORD=adminpw \
--p 5984:5984 \
-couchdb:3.1
+curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
 ```
-
-### 2. Docker 安装 Org1 Peer
-
+### 2. docker-compose 安装
 ```
-# Create Docker Org1 Volume Dir 
-mkdir -p ./peer0.org1.example.com
-
-# Docker Run Org1 Peer
-docker run --rm -d \
---name peer0.org1.example.com \
--e CORE_LEDGER_STATE_STATEDATABASE=CouchDB
--e CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb_peer0_org1:5984 \
--e CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=admin \
--e CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=adminpw \
--e CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock \
--e CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=${COMPOSE_PROJECT_NAME}_test \
--e FABRIC_LOGGING_SPEC=INFO \
--e CORE_PEER_TLS_ENABLED=true \
--e CORE_PEER_PROFILE_ENABLED=true \
--e CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/fabric/tls/server.crt \
--e CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/fabric/tls/server.key \
--e CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/tls/ca.crt \
--e CORE_PEER_ID=peer0.org1.example.com \
--e CORE_PEER_ADDRESS=peer0.org1.example.com:7051 \
--e CORE_PEER_LISTENADDRESS=0.0.0.0:7051 \
--e CORE_PEER_CHAINCODEADDRESS=peer0.org1.example.com:7052 \
--e CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:7052 \
--e CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org1.example.com:7051 \
--e CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org1.example.com:7051 \
--e CORE_PEER_LOCALMSPID=Org1MSP \
--w /opt/gopath/src/github.com/hyperledger/fabric/peer \
--v /var/run/:/host/var/run/ \
--v ~/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/msp:/etc/hyperledger/fabric/msp \
--v ~/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls:/etc/hyperledger/fabric/tls \
--v ~/peer0.org1.example.com:/var/hyperledger/production \
--p 7051:7051 \
-hyperledger/fabric-peer:2.2.1 peer node start
+curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+docker-compose --version
 ```
-
-
-## 使用Docker 创建 Org2 服务
-### 1. Docker 安装 Org2 CouchDB
+### 3. Golang 安装
 ```
-docker run --rm -d \
---name couchdb_peer0_org2 \
--e COUCHDB_USER=admin \
--e COUCHDB_PASSWORD=adminpw \
--p 5984:5984 \
-couchdb:3.1
+wget https://dl.google.com/go/go1.13.4.linux-amd64.tar.gz
+tar -C /usr/local -xzf go1.13.4.linux-amd64.tar.gz
+
+# 设置 go 环境变量
+vi ~/.bashrc
+
+# 添加
+export PATH=$PATH:/usr/local/go/bin
+
+# 执行
+source ~/.bashrc
 ```
-
-### 2. Docker 安装 Org2 Peer
-
+### 4. Node.js 安装
 ```
-# Create Docker Org2 Volume Dir 
-mkdir -p ./peer0.org2.example.com
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+apt install nodejs
+```
+### 5. 安装示例、二进制文件和 Docker 镜像
+```
+mkdir fabric && cd fabric && curl -sSL https://bit.ly/2ysbOFE | bash -s
 
-# Docker Run Org1 Peer
-docker run --rm -d \
---name peer0.org2.example.com \
--e CORE_LEDGER_STATE_STATEDATABASE=CouchDB \
--e CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb_peer0_org2:5984 \
--e CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=admin \
--e CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=adminpw \
--e CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock \
--e CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=${COMPOSE_PROJECT_NAME}_test \
--e FABRIC_LOGGING_SPEC=INFO \
--e CORE_PEER_TLS_ENABLED=true \
--e CORE_PEER_PROFILE_ENABLED=true \
--e CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/fabric/tls/server.crt \
--e CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/fabric/tls/server.key \
--e CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/tls/ca.crt \
--e CORE_PEER_ID=peer0.org2.example.com \
--e CORE_PEER_ADDRESS=peer0.org2.example.com:7051 \
--e CORE_PEER_LISTENADDRESS=0.0.0.0:7051 \
--e CORE_PEER_CHAINCODEADDRESS=peer0.org2.example.com:7052 \
--e CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:7052 \
--e CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org2.example.com:7051 \
--e CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org2.example.com:7051 \
--e CORE_PEER_LOCALMSPID=Org2MSP \
--v /var/run/:/host/var/run/ \
--v ~/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/msp:/etc/hyperledger/fabric/msp \
--v ~/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls:/etc/hyperledger/fabric/tls \
--v ~/peer0.org2.example.com:/var/hyperledger/production \
--w /opt/gopath/src/github.com/hyperledger/fabric/peer \
--p 7051:7051 \
-hyperledger/fabric-peer:2.2.1
+# 设置 fabric bin
+vi ~/.bashrc
+
+# 将 bin 目录加入到 PATH:
+# export PATH=$PATH:~/fabric/bin
+export PATH=/root/fabric/fabric-samples/bin:$PATH
+
+# 执行
+source ~/.bashrc
 ```
