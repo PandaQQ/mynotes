@@ -23,9 +23,9 @@
     * [Network Security](AliCloud-Exam-Notes/Network-Sepcialty/NetworkSecurity.md)
 
 - Hyperledger Fabric 系列教程
-    * [Hyperledger Fabric 2.2.1 生产多机环境部署 - 1.开篇介绍](Hyperledger-Fabric/hyperledger-fabric-deployment-1.md)
-    * [Hyperledger Fabric 2.2.1 生产多机环境部署 - 2.多机部署环境搭建](Hyperledger-Fabric/hyperledger-fabric-deployment-2.md)
-    * [Hyperledger Fabric 2.2.1 生产多机环境部署 - 3.开启Orderer和Org1和Org2Peer的CA 服务](Hyperledger-Fabric/hyperledger-fabric-deployment-3.md)
-    * [Hyperledger Fabric 2.2.1 生产多机环境部署 - 4.创建联盟，并且生成创世块 并且启动 Ordering Service](Hyperledger-Fabric/hyperledger-fabric-deployment-4.md)
-    * [Hyperledger Fabric 2.2.1 生产多机环境部署 - 5.部署 CouchDB 和 Peer 在 Org1 和 Org2 服务器上](Hyperledger-Fabric/hyperledger-fabric-deployment-5.md)
-    * [Hyperledger Fabric 2.2.1 生产多机环境部署 - 5.创建自定义通道，并且将Org1和Org2加入到新建的通道中。](Hyperledger-Fabric/hyperledger-fabric-deployment-6.md)
+    * [Hyperledger Fabric - 1.开篇介绍](Hyperledger-Fabric/hyperledger-fabric-deployment-1.md)
+    * [Hyperledger Fabric - 2.多机部署环境搭建](Hyperledger-Fabric/hyperledger-fabric-deployment-2.md)
+    * [Hyperledger Fabric - 3.开启Orderer和Org1和Org2Peer的CA 服务](Hyperledger-Fabric/hyperledger-fabric-deployment-3.md)
+    * [Hyperledger Fabric - 4.创建联盟，并且生成创世块 并且启动 Ordering Service](Hyperledger-Fabric/hyperledger-fabric-deployment-4.md)
+    * [Hyperledger Fabric - 5.部署 CouchDB 和 Peer 在 Org1 和 Org2 服务器上](Hyperledger-Fabric/hyperledger-fabric-deployment-5.md)
+    * [Hyperledger Fabric - 6.创建自定义通道，并且将Org1和Org2加入到新建的通道中。](Hyperledger-Fabric/hyperledger-fabric-deployment-6.md)
