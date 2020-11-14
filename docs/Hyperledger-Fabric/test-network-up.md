@@ -303,13 +303,3 @@ Using organization 2
 2020-11-11 10:12:41.903 CST [channelCmd] update -> INFO 002 Successfully submitted channel update
 Anchor peers updated for org 'Org2MSP' on channel 'mychannel'
 Channel successfully joined
-root@ecs-d413:~/fabric/fabric-samples/test-network# docker ps -a
-CONTAINER ID        IMAGE                               COMMAND                  CREATED             STATUS              PORTS                                        NAMES
-6c32023f5e0e        hyperledger/fabric-peer:latest      "peer node start"        28 seconds ago      Up 27 seconds       0.0.0.0:7051->7051/tcp                       peer0.org1.example.com
-feb6ebc411dd        hyperledger/fabric-peer:latest      "peer node start"        28 seconds ago      Up 27 seconds       7051/tcp, 0.0.0.0:9051->9051/tcp             peer0.org2.example.com
-bc3ea660a70a        couchdb:3.1.1                       "tini -- /docker-ent…"   29 seconds ago      Up 27 seconds       4369/tcp, 9100/tcp, 0.0.0.0:7984->5984/tcp   couchdb1
-c1ba79897122        hyperledger/fabric-orderer:latest   "orderer"                29 seconds ago      Up 27 seconds       0.0.0.0:7050->7050/tcp                       orderer.example.com
-9e979d26cbaa        couchdb:3.1.1                       "tini -- /docker-ent…"   29 seconds ago      Up 27 seconds       4369/tcp, 9100/tcp, 0.0.0.0:5984->5984/tcp   couchdb0
-0e99c67c3330        hyperledger/fabric-ca:latest        "sh -c 'fabric-ca-se…"   43 seconds ago      Up 41 seconds       0.0.0.0:7054->7054/tcp                       ca_org1
-96ca258f845b        hyperledger/fabric-ca:latest        "sh -c 'fabric-ca-se…"   43 seconds ago      Up 41 seconds       7054/tcp, 0.0.0.0:8054->8054/tcp             ca_org2
-24111893e038        hyperledger/fabric-ca:latest        "sh -c 'fabric-ca-se…"   43 seconds ago      Up 41 seconds       7054/tcp, 0.0.0.0:9054->9054/tcp             ca_orderer
