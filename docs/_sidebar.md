@@ -23,7 +23,7 @@
     * [Network Security](AliCloud-Exam-Notes/Network-Sepcialty/NetworkSecurity.md)
 
 - Hyperledger Fabric 系列教程
-    * [Hyperledger Fabric - 1.开篇介绍](Hyperledger-Fabric/hyperledger-fabric-deployment-1.md)
+    * [Hyperledger Fabric - 1.开篇介绍(Pending)](Hyperledger-Fabric/hyperledger-fabric-deployment-1.md)
     * [Hyperledger Fabric - 2.多机部署环境搭建](Hyperledger-Fabric/hyperledger-fabric-deployment-2.md)
     * [Hyperledger Fabric - 3.开启Orderer和Org1和Org2Peer的CA 服务](Hyperledger-Fabric/hyperledger-fabric-deployment-3.md)
     * [Hyperledger Fabric - 4.创建联盟，并且生成创世块 并且启动 Ordering Service](Hyperledger-Fabric/hyperledger-fabric-deployment-4.md)

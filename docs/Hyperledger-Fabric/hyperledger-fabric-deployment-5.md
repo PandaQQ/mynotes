@@ -5,7 +5,7 @@
 
 | Nodes  |  Internal IP |  Public IP |
 | :----  |  :---------  |  :------   |
-|peer0.org1.example.com | 192.168.0.129 | 119.8.56.178 |
+|peer0.org1.example.com | 192.168.0.129 | * |
 
 ### 1. Docker 安装 Org1 CouchDB
 ```
@@ -108,7 +108,7 @@ hyperledger/fabric-peer:2.2.1 peer node start
 
 | Nodes  |  Internal IP |  Public IP |
 | :----  |  :---------  |  :------   |
-|peer0.org2.example.com | 192.168.0.70 |  119.8.123.249 |
+|peer0.org2.example.com | 192.168.0.70 |  * |
 
 
 ### 1. Docker 安装 Org2 CouchDB
