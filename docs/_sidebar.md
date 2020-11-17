@@ -28,4 +28,5 @@
     * [Hyperledger Fabric - 3.开启Orderer和Org1和Org2Peer的CA 服务](Hyperledger-Fabric/hyperledger-fabric-deployment-3.md)
     * [Hyperledger Fabric - 4.创建联盟，并且生成创世块 并且启动 Ordering Service](Hyperledger-Fabric/hyperledger-fabric-deployment-4.md)
     * [Hyperledger Fabric - 5.部署 CouchDB 和 Peer 在 Org1 和 Org2 服务器上](Hyperledger-Fabric/hyperledger-fabric-deployment-5.md)
-    * [Hyperledger Fabric - 6.创建自定义通道，并且将Org1和Org2加入到新建的通道中。](Hyperledger-Fabric/hyperledger-fabric-deployment-6.md)
+    * [Hyperledger Fabric - 6.创建自定义通道，并且将Org1和Org2加入到新建的通道中](Hyperledger-Fabric/hyperledger-fabric-deployment-6.md)
+    * [Hyperledger Fabric - 7. Chaincode 编译和安装到新建的 mychannel 通道](Hyperledger-Fabric/hyperledger-fabric-deployment-7.md)
