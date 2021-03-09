@@ -5,6 +5,7 @@
     * [使用 GitLab 来对项目进行 CI/CD](docker/gitlab.md)
     * [使用 Docker 安装Jenkins进行 CI/CD](docker/jenkins.md)
     * [使用 Docker 安装mysql5.6+phpmyadmin](docker/mysql+phpmyadmin.md)
+    * [使用 Docker 安装Redis](docker/redis+docker.md)
 
 - IBM Blockchain Platform 笔记
     * [Blockchain Basic: Hyperledger Fabric](IBM/blockchain-basic-hyperledger-fabric.md)
