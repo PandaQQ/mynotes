@@ -11,8 +11,7 @@
     * [IBM Blockchain Platform on Cloud](IBM/IBM-Blockchain-Platform-on-Cloud.md)
     * [用 Visual Studio Code 开发 Smart Contract](IBM/smart-contract.md)
     * [Blockchain Platform 运维](IBM/managing-deployed-components.md)
-* [IBM Blockchain Network 备份方案](IBM/IBP-Network-Backup-Plan.md)
-    * 
+    * [IBM Blockchain Network 备份方案](IBM/IBP-Network-Backup-Plan.md) 
     
 - React Native 开发笔记
     * [React Native - 在浏览器中打开连接](react-native/react-native-html.md)
@@ -32,3 +31,6 @@
     * [Hyperledger Fabric - 5.部署 CouchDB 和 Peer 在 Org1 和 Org2 服务器上](Hyperledger-Fabric/hyperledger-fabric-deployment-5.md)
     * [Hyperledger Fabric - 6.创建自定义通道，并且将Org1和Org2加入到新建的通道中](Hyperledger-Fabric/hyperledger-fabric-deployment-6.md)
     * [Hyperledger Fabric - 7. Chaincode 编译和安装到新建的 mychannel 通道](Hyperledger-Fabric/hyperledger-fabric-deployment-7.md)
+
+- HuaweiCloud 笔记 
+    * 
