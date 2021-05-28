@@ -38,7 +38,7 @@
 
 > Comparison between Water-Fall and Agile:
 
-![截屏2021-05-28 上午11.09.27](/Users/zhengqi/Desktop/截屏2021-05-28 上午11.09.27.png)
+![截屏2021-05-28 上午11.09.27](assets/截屏2021-05-28上午11.09.27.png)
 
 > Risk between Water-Fall and Agile:
 
@@ -74,8 +74,7 @@ Although Agile improve the efficiency og software development and version releas
 ![v2-8ba508ea0cec41248213a12cb019aa09_1440w](assets/v2-8ba508ea0cec41248213a12cb019aa09_1440w.jpg)
 
 >  Comparison with Water-Fall, Agile and DevOps:
-
-![截屏2021-05-28 下午1.17.02](/Users/zhengqi/Desktop/截屏2021-05-28 下午1.17.02.png)
+![截屏2021-05-28 下午1.17.02](assets/截屏2021-05-28下午1.17.02.png)
 
 > The Value of DevOps:
 
@@ -101,7 +100,7 @@ Although Agile improve the efficiency og software development and version releas
 
 ### A DevOps Toolchain in Action:
 
-![截屏2021-05-28 下午3.02.37](assets/截屏2021-05-28 下午3.02.37.png)
+![截屏2021-05-28 下午3.02.37](assets/截屏2021-05-28下午3.02.37.png)
 
 
 
