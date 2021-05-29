@@ -1,5 +1,3 @@
-- DevOps Introduction
-    * [DevOps Introduction](DevOps/DevOpsIntroduction.md)
 
 - Docker 笔记
     * [Docker CE 安裝教程](docker/docker.md)
