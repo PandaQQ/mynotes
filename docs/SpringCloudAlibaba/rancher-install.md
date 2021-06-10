@@ -6,8 +6,6 @@
 
 
 
-
-
 ## 1. Docker Installation
 
 >  十分推荐，一键安装
@@ -70,5 +68,70 @@ docker exec -it f0540dae02bf /bin/bash
 docker pull bladex/sentinel-dashboard:1.8.0
 
 sentinel port is 32100
+```
+
+> saber Docker Image
+
+```
+docker pull --platform linux/x86_64 mysql:5.7.26
+
+docker build -t saber-db:3.0.3 .
+
+docker run -p 3300:3306 --name saber-db \
+--restart always \
+-e MYSQL_ALLOW_EMPTY_PASSWORD=1 \
+-e MYSQL_ROOT_PASSWORD=root \
+-d saber-db:3.0.3
+
+
+docker exec -it 74683d472176 /bin/bash
+```
+
+> Skywalking Docker Images
+
+```
+docker pull elasticsearch:7.5.1
+docker pull apache/skywalking-oap-server:6.6.0-es7
+docker pull apache/skywalking-ui:6.6.0
+```
+
+> Skywalking Deployment
+
+```
+https://www.cnblogs.com/xiao987334176/p/13530575.html
+
+
+docker run -d --name=es7 \
+  -p 9200:9200 \
+  -p 9300:9300 \
+  -e "discovery.type=single-node" \
+  -v /root/elasticsearch/data:/usr/share/elasticsearch/data \
+  -v /root/elasticsearch/logs:/usr/share/elasticsearch/logs \
+elasticsearch:7.5.1
+
+
+docker cp es7:/usr/share/elasticsearch/data /root/elasticsearch/
+docker cp es7:/usr/share/elasticsearch/logs /root/elasticsearch/
+
+
+
+docker run --name oap --restart always -d \
+--restart=always \
+-e TZ=Asia/Shanghai \
+-p 12800:12800 \
+-p 11800:11800 \
+--link es7:es7 \
+-e SW_STORAGE=elasticsearch \
+-e SW_STORAGE_ES_CLUSTER_NODES=es7:9200 \
+apache/skywalking-oap-server:6.6.0-es7
+
+
+docker run -d --name skywalking-ui \
+--restart=always \
+-e TZ=Asia/Shanghai \
+-p 8088:8080 \
+--link oap:oap \
+-e SW_OAP_ADDRESS=oap:12800 \
+apache/skywalking-ui:6.6.0
 ```
 
