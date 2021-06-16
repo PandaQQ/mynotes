@@ -77,6 +77,9 @@ sudo service docker start
 # VPC网络：
 # sudo yum-config-manager --add-repo http://mirrors.could.aliyuncs.com/docker-ce/linux/centos/docker-ce.repo
 ```
+
+
+
 ### 安装校验
 ```
 docker version

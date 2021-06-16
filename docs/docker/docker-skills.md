@@ -12,3 +12,10 @@ docker rm $(docker ps -a -q)
 ```
 docker logs --follow {container_id}
 ```
+
+### 3. Remove all docker images
+
+```
+docker rmi -f $(docker images -q)
+```
+
