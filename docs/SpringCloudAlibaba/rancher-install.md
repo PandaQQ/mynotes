@@ -2,11 +2,9 @@
 
 > This topic is mainly focus on the Rancher 1.6 Installation for CentOS 7.6 with SpringCloud Alibaba MircoService Usage.
 
-### Version Management
-
 ## 1. Docker Installation
 
->  十分推荐，一键安装
+>  One-Click Installation
 
 ```
 curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
