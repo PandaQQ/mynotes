@@ -6,11 +6,11 @@
 >
 > Some people say it is a method, and some people say it is a tool, and some people say it is a spirit. What's more, say it is a philosophy. 
 >
-> So let's start~ 
+> So let's start ~
 
 ## 1. The Origin of DevOps
 
-> As we konwn,  a software from zero to final devlivery.
+> As we known,  a software from zero to final devlivery.
 
 ![v2-348e4330b324fc431ebc040b744de12c_1440w](assets/v2-348e4330b324fc431ebc040b744de12c_1440w.jpg)
 

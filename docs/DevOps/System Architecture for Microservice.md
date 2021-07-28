@@ -15,11 +15,7 @@
 - Ingress-controller redirects HTTP to HTTPS and terminates SSL / TLS on port TCP / 443 (SSL digital certificate deployed here).
 - Ingress-controller forwards traffic to the TCP / 80 port of the POD.
 
-
-
 ![rancher2ha](assets/rancher2ha.svg)
-
-
 
 #### 1.2 Recommended Servers:
 
