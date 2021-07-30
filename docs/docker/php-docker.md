@@ -289,6 +289,10 @@ LABEL Version="1.0.25-fpm"
 LABEL Description="PHP FPM 7.2 镜像. All extensions."
 ```
 
+ docker tag ab25d46490ef pandaqq/myphp-1.0
+
+
+
 ### Last check with php -m
 
 ```
@@ -327,6 +331,7 @@ Reflection
 session
 shmop
 SimpleXML
+soap
 sockets
 sodium
 SPL
