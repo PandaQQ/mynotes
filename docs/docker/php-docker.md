@@ -289,6 +289,7 @@ LABEL Version="1.0.25-fpm"
 LABEL Description="PHP FPM 7.2 镜像. All extensions."
 ```
 
+ docker build -t myphp-1.1 .
  docker tag ab25d46490ef pandaqq/myphp-1.0
 
 
