@@ -138,3 +138,4 @@ docker push pandaqq/codeigniter:4.1.5
 - https://github.com/php-amqplib/php-amqplib/blob/master/docker/php/Dockerfile (php-amqp Dockerfile)
 - https://github.com/atsanna/codeigniter4-docker   (CodeIgniter4+PHP8.0 Dockerfile) 
 - https://github.com/pierrecdn/phpipam/issues/61 (Can't build image for ARM #61)
+- https://www.w3cschool.cn/codeigniter4/codeigniter4-x96a39js.html (CI4 教程)
