@@ -19,4 +19,3 @@
 ### Python 教程
 
 - https://www.birdpython.com/posts/3/23/ （老鳥Python, 學習 Django , Python3, 設計模式）
-- 
