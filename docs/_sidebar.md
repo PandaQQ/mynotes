@@ -1,6 +1,9 @@
-- .NET Core 学习
+- 个人随笔
+  - [管理共学以及管理者的六不要](management/note-1.md)
 
+- .NET Core 学习
   - [学习资料](.netcore/1-reference.md)
+  - [Backend For Frontend](.netcore/2-bff.md)
 
 - Docker 笔记
 
