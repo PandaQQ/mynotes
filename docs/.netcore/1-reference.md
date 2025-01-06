@@ -1,5 +1,9 @@
 # .NET Core 学习笔记
 
+## .NET History
+![.NET History](assets/net-history.png)
+
+
 ## 1. 学习文档参考
 
 > Furion Documents:
